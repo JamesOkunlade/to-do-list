@@ -1,8 +1,7 @@
 import Storage from "./storage"
-import Seeds from "./seeds"
 
 const getIndex = () => {
-  let index = Storage.loadIndex("task") || Seeds.taskId()
+  let index = Storage.loadIndex("task")
   Storage.saveIndex("task", index + 1)
   return index
 }
