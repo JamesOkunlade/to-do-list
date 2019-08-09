@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <title>To-Do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Roboto&display=swap" rel="stylesheet">
+    <link href="assets/styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="new-project-modal" class="modal-background hidden" style="display: none;">
+      <div class="modal-wrapper">
+        <form id="new-project-form" name="project" class="modal">
+          <div class="modal-header">
+            <h3 class="modal-heading">New Project</h3>
+            <button type="button" id="close-project-modal" class="close-modal-button">&#10006</button>
+          </div>
+          <div class="modal-body">
+            <label for="project-name-textbox">Name</label>
+            <input type="text" id="project-name-textbox" name="name" autocomplete="off" required>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="modal-button">Create Project</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="new-task-modal" class="modal-background hidden" style="display: none;">
+      <div class="modal-wrapper">
+        <form id="new-task-form" name="task" class="modal">
+          <div class="modal-header">
+            <h3 class="modal-heading">New Task</h3>
+            <button type="button" id="close-task-modal" class="close-modal-button"> &#10006 </button>
+          </div>
+          <div class="modal-body">
+            <label for="name-textbox">Name</label>
+            <input type="text" id="name-textbox" name="name" autocomplete="off" required>
+
+            <label for="description-textbox">Description</label>
+            <textarea id="description-textbox" name="description" maxlength="500" optional></textarea>
+
+            <label for="due-date-field">Due date</label>
+            <input type="datetime-local" id="due-date-field" name="due_date" required>
+
+            <label for="priority-slider">Priority: <span id="priority-value" class="normal-prio-color">Normal</span></label>
+            <div class="slider-wrapper">
+              <input type="range" id="priority-slider" name="priority" min="1" max="3" value="2">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="modal-button">Create Task</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="header">
+      <div class="container">
+        <div class="header-nav">
+          <div class="menu-button-wrapper">
+            <button type="button" class="menu-button">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </button>
+          </div>
+          <h1 class="header-logo">To-Do List</h1>
+        </div>
+      </div>
+    </div>
+    <div class="main container">
+      <div class="sidebar collapsed">
+        <h4 class="heading">Projects</h4>
+        <button type="button" class="new-project-button">
+          <i class="fas fa-plus new-project-icon"></i>
+          New Project
+        </button>
+        <ul class="sidebar-list">
+        </ul>
+      </div>
+
+      <div class="project">
+        <h2 class="project-name"><u>[No project loaded]</u></h2>
+          <button type="button" class="delete-project-button" disabled>Delete</button>
+        <div class="tasks-heading-wrapper">
+          <h4 class="heading tasks-heading">Tasks</h4>
+          <button class="sort-button" disabled><i class="fas fa-sort-amount-down"></i> Sort</button>
+        </div>
+        <button type="button" class="new-task-button" disabled><i class="fas fa-plus new-task-icon"></i>New Task</button>
+
+        <ul class="task-list">
+
+        </ul>
+      </div>
+    </div>
+    <script src="assets/main.js"></script>
+  </body>
+</html>
